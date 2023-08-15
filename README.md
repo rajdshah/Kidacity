@@ -21,7 +21,7 @@ mkdir myfolder
 
 cd myfolder
 
-git clone 
+git clone https://github.com/rajdshah/Kidemy
 
 cd Fantastic-Five
 
