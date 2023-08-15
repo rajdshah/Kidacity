@@ -1,0 +1,81 @@
+{{#if children.length}}
+    <div class="my-5">
+
+        {{#if addChildFlashMessage}}
+            <div class="alert alert-success mt-3 mx-5" role="alert">
+                {{addChildFlashMessage}}
+            </div>
+        {{/if}}
+
+        {{#if editChildFlashMessage}}
+            <div class="alert alert-success mt-3 mx-5" role="alert">
+                {{editChildFlashMessage}}
+            </div>
+        {{/if}}
+
+        {{#if editChildError}}
+            <div class="alert alert-danger mt-3 mx-5" role="alert">
+                {{editChildError}}
+            </div>
+        {{/if}}
+
+        <div class="container mt-5">
+            <div class="row row-cols-4">
+                {{#each children}}
+                    <div class="col">
+                        <div class="card text-center m-2">
+                            <img
+                                src="../../public/images/child.png"
+                                class="card-img-top"
+                                width="100"
+                            />
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>First Name:</strong>
+                                    {{firstName}}</li>
+                                <li class="list-group-item"><strong>Last Name:</strong>
+                                    {{lastName}}</li>
+                                <li class="list-group-item"><strong
+                                    >Email:</strong>
+                                    {{email}}</li>
+                                <li class="list-group-item"><strong>Courses
+                                        Assigned:</strong>
+                                    {{courses.length}}</li>
+                            </ul>
+                            <div class="card-body">
+                                <a
+                                    href="/parents/childProgress/{{_id}}"
+                                    class="btn btn-sm btn-primary"
+                                >View Progress</a>
+                                <a
+                                    href="/parents/editChild/{{_id}}"
+                                    class="btn btn-sm btn-secondary"
+                                >Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+{{else}}
+    <div class="my-5">
+        <div class="d-flex flex-row justify-content-center">
+            <div class="card text-center" style="width: 15rem;">
+                <img
+                    src="../../public/images/children.png"
+                    class="card-img-top"
+                    width="100"
+                />
+                <div class="card-body">
+                    <p class="card-text">You haven't created any child account.
+                        Please create an account your child to start learning.</p>
+                </div>
+                <div class="card-body">
+                    <a href="/parents/addChild" class="btn btn-primary">Create
+                        Child Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
